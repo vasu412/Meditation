@@ -155,7 +155,7 @@ fetch('https://accounts.spotify.com/api/token', requestOptions)
 
 function call(data){
     const accessToken = data.access_token;
-    console.log('Access Token:', accessToken);
+    // console.log('Access Token:', accessToken);
     const albumName = 'Meditative Songs'
     // Use the access token to make authorized requests to the Spotify API
     // For example:
@@ -166,7 +166,7 @@ function call(data){
     })
     .then(response => response.json())
     .then(data => {
-        console.log(data);
+        // console.log(data);
     
         data.artists.items.forEach((x)=>{
             let mainBox = document.createElement('div');
@@ -198,17 +198,17 @@ function call(data){
                 let plays =0;
                 let check = 'notPlaying';
 
+
+                let open = 'open';
+                if(open=='open'){
+                    
+                }
                 mainBox.addEventListener('click',()=>{
                     let songBox = document.querySelector('.songBox');
-                    songBox.style.display = 'block';
-
-                    let cross = document.querySelector('#cross')
-                    console.log(cross)
-                    cross.addEventListener('click',()=>{
-                        songBox.style.display = 'none';
-                        console.log("wfwebwk")
-                    })
-
+                    songBox.style.display = 'block';                    
+                    songBox.innerHTML=`
+                    <i class="material-icons" id="cross" style="color: white; position: absolute; right: 5px; top:5px">close</i>
+                    `
                     songBox.innerHTML+=`
                     <div class="intro">
                         <div class="img" style="background-image:url(${x.images[0].url})"></div>
@@ -234,8 +234,6 @@ function call(data){
                             </div>
                             <span class='time'>${x.duration_ms}</span>
                         `
-                        track.appendChild(table)
-                        num++;
 
                         var audio = new Audio(`${x.preview_url}`);
 
@@ -249,24 +247,38 @@ function call(data){
                                     audio.play();
                                     check = 'playing'
                                 }
-                                
                             })
                         }
                         else{
                             audio.pause();
                             check='notPlaying'
                         }
+
+                        track.appendChild(table)
+                        num++;
                         
                     })
 
                     songBox.appendChild(track)
+
+                    let cross = document.querySelector('#cross')
+                    cross.addEventListener('click',() => {
+                        songBox.style.display = 'none';
+                        body.style.overflow = 'scroll'
+                        songBox.innerHTML='';
+                        songBox.innerHTML+=`
+                        <i class="material-icons" id="cross" style="color: white; position: absolute; right: 5px; top:5px">close</i>
+                        `
+                    })
+
+                    body.style.overflow = 'hidden'
                 }) 
 
-                if (tracks.length > 0) {
-                  console.log('Artist Top Tracks:', tracks);
-                } else {
-                  console.log('No tracks found for the artist');
-                }
+                // if (tracks.length > 0) {
+                //   console.log('Artist Top Tracks:', tracks);
+                // } else {
+                //   console.log('No tracks found for the artist');
+                // }
               })
 
              
@@ -305,3 +317,44 @@ circle2.addEventListener('click',()=>{
     width =0;
     circle2.style.display = 'none'
 })
+
+
+async function nature(){
+    let apiKey = '42868898-ed34784613294936d0d4f6293';
+    let searchQuery = 'nature music';
+    let data = await fetch(`https://pixabay.com/api/videos/?key=${apiKey}&q=${encodeURIComponent(searchQuery)}`)
+    let res = await data.json();
+    console.log(res);
+}
+
+nature();
+
+
+const apiKey = '4JlrgJa1Q5660vVaIuvblrNLZg0Mbah0NlAHL11ipJ1HWra18EOT7DfC';
+const searchQuery = 'calm nature and meditation'; // Example search query
+
+fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(searchQuery)}`, {
+  headers: {
+    'Authorization': apiKey
+  }
+})
+.then(response => {
+  if (response.ok) {
+    return response.json();
+  }
+  throw new Error('Failed to fetch videos');
+})
+.then(data => {
+  const videos = data.videos;
+//   console.log(videos) 
+//   if (videos.length > 0) {
+//     console.log('First video title:', videos[0].url);
+//     console.log('First video URL:', videos[0].video_files[0].link);
+//   } else {
+//     console.log('No videos found');
+//   }
+})
+.catch(error => {
+  console.error('Error:', error);
+});
+
