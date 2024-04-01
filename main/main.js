@@ -3,6 +3,7 @@ let music = document.querySelector('.music');
 let scenes = document.querySelector('.scenes');
 let body = document.querySelector('.body')
 let black = document.querySelector('.black')
+let fullSize = document.querySelector('.fullSize');
 
 let arr = [
     {
@@ -207,6 +208,7 @@ function call(data){
                 }
                 mainBox.addEventListener('click',()=>{
                     black.style.display='block'
+                    black.style.backgroundColor = 'white'
                     let songBox = document.querySelector('.songBox');
                     songBox.style.display = 'block';                    
                     songBox.innerHTML=`
@@ -273,6 +275,7 @@ function call(data){
                         <i class="material-icons" id="cross" style="color: white; position: absolute; right: 5px; top:5px">close</i>
                         `
                         black.style.display = 'none'
+                        black.style.backgroundColor = 'black'
                     })
 
                     body.style.overflow = 'hidden'
@@ -337,9 +340,7 @@ async function nature(){
             mainBox2.innerHTML = `
                 <div class="musicBox" style="background-image:url(${x.videos.large.thumbnail})"></div>
             `
-            scenes.appendChild(mainBox2)
 
-            let fullSize = document.querySelector('.fullSize');
             mainBox2.addEventListener('click',()=>{
                 var video = x.videos.large.url;
                 fullSize.style.display='block'
@@ -353,13 +354,15 @@ async function nature(){
                 black.style.display = 'block'
             })
 
-
+            scenes.appendChild(mainBox2)
     })
+    
+            let cross2 = document.querySelector('#cross2');
+            console.log(cross2)
 
-    let cross2 = document.querySelector('#cross2');
-    cross2.addEventListener('click',()=>{
-        console.log(cross2)
-    })
+            cross2.addEventListener('click',()=>{
+                console.log('hjbdavshwvefyi')
+            })
 }
 
 nature();
@@ -394,3 +397,8 @@ circle3.addEventListener('click',()=>{
 })
 
 
+if(fullSize.style.display=='block'){
+    
+}
+
+    

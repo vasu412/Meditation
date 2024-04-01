@@ -226,8 +226,10 @@ body{
     margin: 39px;
     border-radius: 10px;
     /* background: linear-gradient(to top, #bdc3c7, #2c3e50); */
-    background: linear-gradient(to right, #000000, #EB5757); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    /* background: linear-gradient(to right, #000000, #EB5757);  */
+    /* background: linear-gradient(to right, #bdc3c7, #2c3e50); */
+    /* background: linear-gradient(to right, #525252, #3d72b4); */
+    background: linear-gradient(to right, #cc95c0, #dbd4b4, #7aa1d2);
     display: none;
     overflow: scroll;
 }
@@ -235,10 +237,7 @@ body{
 .intro{
     height: 250px;
     display: flex;
-    /* justify-content: space-between; */
     align-items: center;
-    /* position: sticky;
-    top: 0; */
     border-bottom:1px solid white ;
     margin-bottom: 20px;
 }

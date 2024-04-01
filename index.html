@@ -3,41 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Text Reveal Animation on Page Load</title>
+  <title>Image Color Overlay</title>
   <style>
-    body {
-      background-color: #f0f0f0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
-
-    .text-container {
-      font-family: 'Arial', sans-serif;
-      font-size: 36px;
-      color: #fff;
+    .image-container {
       position: relative;
-      overflow: hidden;
-      opacity: 0; /* Initially hide the text */
-      transition: opacity 2s ease-in-out; /* Smooth transition for opacity */
+      width: 300px; /* Set the width and height of the container */
+      height: 200px;
     }
 
-    .text-container.reveal {
-      opacity: 1; /* Reveal the text */
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5); /* Change the opacity (last value) to adjust the overlay transparency */
     }
   </style>
 </head>
 <body>
-  <div class="text-container">Hello, world!</div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // When the DOM content is loaded, add the 'reveal' class to reveal the text
-      var textContainer = document.querySelector('.text-container');
-      textContainer.classList.add('reveal');
-    });
-  </script>
+  <div class="image-container">
+    <img src="https://cdn.pixabay.com/video/2018/12/10/19860-306108562_medium.jpg" alt="Your Image">
+    <div class="overlay"></div>
+  </div>
 </body>
 </html>
