@@ -1,6 +1,8 @@
 let imgs = document.querySelector('.images');
 let music = document.querySelector('.music');
+let scenes = document.querySelector('.scenes');
 let body = document.querySelector('.body')
+let black = document.querySelector('.black')
 
 let arr = [
     {
@@ -204,6 +206,7 @@ function call(data){
                     
                 }
                 mainBox.addEventListener('click',()=>{
+                    black.style.display='block'
                     let songBox = document.querySelector('.songBox');
                     songBox.style.display = 'block';                    
                     songBox.innerHTML=`
@@ -269,6 +272,7 @@ function call(data){
                         songBox.innerHTML+=`
                         <i class="material-icons" id="cross" style="color: white; position: absolute; right: 5px; top:5px">close</i>
                         `
+                        black.style.display = 'none'
                     })
 
                     body.style.overflow = 'hidden'
@@ -321,40 +325,72 @@ circle2.addEventListener('click',()=>{
 
 async function nature(){
     let apiKey = '42868898-ed34784613294936d0d4f6293';
-    let searchQuery = 'nature music';
+    let searchQuery = 'nature and meditation';
     let data = await fetch(`https://pixabay.com/api/videos/?key=${apiKey}&q=${encodeURIComponent(searchQuery)}`)
     let res = await data.json();
     console.log(res);
+
+    res.hits.forEach((x)=>{
+            let mainBox2 = document.createElement('div');
+            mainBox2.classList.add('mainBox2');
+            // album[0].toUpper
+            mainBox2.innerHTML = `
+                <div class="musicBox" style="background-image:url(${x.videos.large.thumbnail})"></div>
+            `
+            scenes.appendChild(mainBox2)
+
+            let fullSize = document.querySelector('.fullSize');
+            mainBox2.addEventListener('click',()=>{
+                var video = x.videos.large.url;
+                fullSize.style.display='block'
+                const videoElement = document.createElement('video');
+                videoElement.src = video;
+                videoElement.style.height = '100%';
+                videoElement.style.width = '100%';
+                fullSize.appendChild(videoElement)
+                videoElement.play();
+                body.style.overflow = 'hidden'
+                black.style.display = 'block'
+            })
+
+
+    })
+
+    let cross2 = document.querySelector('#cross2');
+    cross2.addEventListener('click',()=>{
+        console.log(cross2)
+    })
 }
 
 nature();
 
+let circle4 = document.querySelector('.circle4');
+let circle3 = document.querySelector('.circle3');
+let time2 = 1;
+let width2 = 0;
 
-const apiKey = '4JlrgJa1Q5660vVaIuvblrNLZg0Mbah0NlAHL11ipJ1HWra18EOT7DfC';
-const searchQuery = 'calm nature and meditation'; // Example search query
+circle4.addEventListener('click',()=>{
+    circle3.style.display = 'block'
+    let len = (322*time2)+width2;
+    let mainBox2 = document.querySelectorAll('.mainBox2');
+    mainBox2.forEach((x)=>{
+        x.style.transform = `translateX(-${len}px)`
+    })
+    width2+=23.5;
+    time2++;
+    if(time2==17){
+        circle4.style.display = 'none'
+    }
+})
 
-fetch(`https://api.pexels.com/videos/search?query=${encodeURIComponent(searchQuery)}`, {
-  headers: {
-    'Authorization': apiKey
-  }
+circle3.addEventListener('click',()=>{
+    let mainBox2 = document.querySelectorAll('.mainBox2');
+    mainBox2.forEach((x)=>{
+        x.style.transform = `translateX(10px)`
+    })
+    time2=1;
+    width2 =0;
+    circle3.style.display = 'none'
 })
-.then(response => {
-  if (response.ok) {
-    return response.json();
-  }
-  throw new Error('Failed to fetch videos');
-})
-.then(data => {
-  const videos = data.videos;
-//   console.log(videos) 
-//   if (videos.length > 0) {
-//     console.log('First video title:', videos[0].url);
-//     console.log('First video URL:', videos[0].video_files[0].link);
-//   } else {
-//     console.log('No videos found');
-//   }
-})
-.catch(error => {
-  console.error('Error:', error);
-});
+
 
