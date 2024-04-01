@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Reveal Animation on Page Load</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .text-container {
+      font-family: 'Arial', sans-serif;
+      font-size: 36px;
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      opacity: 0; /* Initially hide the text */
+      transition: opacity 2s ease-in-out; /* Smooth transition for opacity */
+    }
+
+    .text-container.reveal {
+      opacity: 1; /* Reveal the text */
+    }
+  </style>
+</head>
+<body>
+  <div class="text-container">Hello, world!</div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // When the DOM content is loaded, add the 'reveal' class to reveal the text
+      var textContainer = document.querySelector('.text-container');
+      textContainer.classList.add('reveal');
+    });
+  </script>
+</body>
+</html>
