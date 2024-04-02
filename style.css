@@ -107,7 +107,7 @@ main {
     font-size: 1rem;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    margin-top: 20px;
+    margin-top: 30px;
     font-family: brandon;
 }
 
@@ -134,3 +134,20 @@ p{
     font-family: brandon;
 }
 
+@media  (max-width:425px) {
+    nav h1{
+        font-size: 30px;
+    }
+
+    nav .topic a{ 
+        display: none;
+    }
+
+    .hero h2{
+        font-size: 40px;
+    }
+
+    footer{
+        position: relative;
+    }
+}

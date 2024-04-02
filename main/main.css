@@ -188,7 +188,7 @@ a{
 
 .musicBox{
     height: 322px;
-    min-width: 322px;
+    width: 322px;
     border-radius: 10px;
     overflow: scroll;
     margin-right: 22px;
@@ -375,4 +375,62 @@ a{
     z-index: 999;
     position: fixed;
     display: none;
+}
+
+@media  (max-width:425px) {
+    nav h1{
+        font-size: 30px;
+    }
+    nav .topic a{ 
+        display: none;
+    }
+
+    .first{
+        padding: 20px;
+    }
+
+    .first .title{
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .musicBox{
+        height: 280px;
+        width:  280px;
+    }
+/* 
+    .circle,.circle4{
+        display: none;
+    } */
+
+    /* .circle4{
+        top: 280vh;
+    } */
+
+    .boxes{
+        height: 400px;
+        width: 210px;
+    }
+
+    .calm{
+        font-size: 25px;
+    }
+}
+
+@media (max-width:768px) {
+    .first .title{
+        font-size: 30px;
+        /* text-align:start; */
+    }
+
+    .first{
+        padding: 30px 100px;
+    }
+}
+
+@media (max-width:1024px) {
+    .first {
+        padding: 30px 130px;
+        /* text-align:start; */
+    }
 }
