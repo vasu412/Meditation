@@ -80,3 +80,11 @@ nav h1{
     font-family:'brandon';
     letter-spacing: .6px;
 }
+
+.music::-webkit-scrollbar {
+    display: none;
+  }
+
+.mainBox:hover{
+    cursor: pointer;
+}
