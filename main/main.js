@@ -104,15 +104,23 @@ function adding(){
 
 adding()
 
+// 
+
 let boxes = document.querySelectorAll('.boxes')
 let val = 4;
 let interval = setInterval(()=>{
     val+=1;
-    boxes.forEach((x)=>{
-        x.style.transform = `translateX(-${val}px)`
-    }) 
+    loop(val)
+    // if(val>1300){
+    //     val=-val;
+    // }
 },10)
 
+function loop (val){
+    boxes.forEach((x)=>{
+        x.style.transform = `translateX(-${val}px)`
+    })
+}
 
 // async function music(){
 //     let data = await fetch(`https://www.googleapis.com/youtube/v3/search?key=AIzaSyA31xiX6n9H_vSCijw5DSDxqWJGgul5eJs&part=snippet&q=meditationmusic&type=video`);
