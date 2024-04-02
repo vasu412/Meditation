@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Color Overlay</title>
-  <style>
-    .image-container {
-      position: relative;
-      width: 300px; /* Set the width and height of the container */
-      height: 200px;
-    }
-
-    .image-container img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    .overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5); /* Change the opacity (last value) to adjust the overlay transparency */
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenful Zone</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
 </head>
 <body>
-  <div class="image-container">
-    <img src="https://cdn.pixabay.com/video/2018/12/10/19860-306108562_medium.jpg" alt="Your Image">
-    <div class="overlay"></div>
-  </div>
+  <nav>
+    <a href="#"><h1>Zenful Zone</h1></a>
+    <div style="display: flex;" class="topic">
+        <a href="./music/music.html"><h2>Music</h2></a>
+        <a href="./scenes/scene.html"><h2>Scenes</h2></a>
+        <a href=""><h2>Exercises</h2></a>
+        <i class="material-icons">account_circle</i>
+        <i class="material-icons">expand_more</i>
+    </div>
+    
+</nav>
+    <main>
+        <section class="hero">
+            <h2>Welcome to Zenful Zone</h2>
+            <p>Step into a world of peace and serenity. At Zenful Zone, we invite you to embark on a journey of self-discovery and inner harmony.</p>
+        </section>
+        <section class="content">
+            <h2>Discover Your Inner Peace</h2>
+            <p>Explore a sanctuary of guided meditations, mindfulness practices, and serene landscapes. Whether you're a beginner or an experienced practitioner, our curated collection of resources will help you find balance, clarity, and tranquility in your everyday life.</p>
+            <p>Unwind from the stresses of modern life and reconnect with your true self. Dive into our library of meditation sessions, yoga practices, and breathing exercises designed to nurture your mind, body, and soul.</p>
+            <p>In a fast-paced world, take a moment to pause, breathe, and be present. Join our community of like-minded individuals on a journey of mindfulness and self-awareness. Together, let's create a space of peace and positivity.</p>
+            <a href="../main/main.html"><button class="btn-start">Start Your Journey Today</button></a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Zenful Zone. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
