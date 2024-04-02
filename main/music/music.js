@@ -11,6 +11,9 @@ const requestOptions = {
 };
 
 let body = document.querySelector('.body')
+
+let all = document.querySelector('.data');
+
 async function fetchAccessToken() {
     try {
         const response = await fetch('https://accounts.spotify.com/api/token', requestOptions);
@@ -69,12 +72,12 @@ async function displayPlaylists(accessToken, playlists) {
             const h1 = document.createElement('h3');
             h1.classList.add('h1');
             h1.innerHTML = `<i class='material-icons'>music_note</i>${playlist.name}`;
-            body.appendChild(h1);
+            all.appendChild(h1);
 
             const music = document.createElement('div');
             music.classList.add('music');
             music.style.display = 'flex';
-            body.appendChild(music);
+            all.appendChild(music);
 
             const tracks = await fetchPlaylistTracks(accessToken, playlist.id);
             let currentlyPlayingAudio = null;
@@ -143,3 +146,23 @@ async function init() {
 }
 
 init();
+
+let input = document.querySelector('.input');
+let search = document.querySelector('.button')
+
+search.addEventListener('click',()=>{
+    let value = input.value;
+    all.innerHTML = ""
+
+    async function init() {
+        try {
+            const accessToken = await fetchAccessToken();
+            const playlists = await fetchPlaylists(accessToken, value);
+            await displayPlaylists(accessToken, playlists);
+        } catch (error) {
+            console.error('Initialization error:', error);
+        }
+    }
+    
+    init();
+})
