@@ -14,6 +14,10 @@
     src: url(./HvDTrial_Brandon_Grotesque_medium-BF64a625c84a521.otf);
 }
 
+body{
+    background-color: #e3e2e26a;
+}
+
 nav{
     height: 100px;
     width: 100vw;
