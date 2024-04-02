@@ -91,6 +91,7 @@ let count =0;
 function adding(){
     arr.forEach(ele => {
         let mDiv = document.createElement('div');
+        mDiv.classList.add('.mDiv')
         let div = document.createElement('div');
         div.classList.add('boxes');
         div.style.backgroundImage = `url(${ele.url})`
