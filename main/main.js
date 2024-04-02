@@ -251,7 +251,7 @@ function call(data){
                         `;
                 
                         var audio = new Audio(`${x.preview_url}`);
-                        audio.controls = true;
+                        // audio.controls = true;
                 
                         table.addEventListener('click', () => {
                             // Pause the current audio if it exists
@@ -262,6 +262,11 @@ function call(data){
                             audio.play();
                             // Update the currently playing audio
                             currentAudio = audio;
+                        });
+
+                        audio.addEventListener('ended', () => {
+                            audio.currentTime = 0; // Reset the audio to the beginning
+                            audio.play(); // Start playback again
                         });
                 
                         track.appendChild(table);
@@ -280,6 +285,8 @@ function call(data){
                         `
                         black.style.display = 'none'
                         black.style.backgroundColor = 'black'
+                        currentAudio.pause();
+                        currentAudio = null;
                     })
 
                     body.style.overflow = 'hidden'
