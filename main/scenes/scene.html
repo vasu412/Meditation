@@ -40,7 +40,12 @@
 
         @font-face {
             font-family: 'js';
-            src: url(/main/JennaSue.ttf);
+            src: url(./JennaSue.ttf);
+        }
+
+        @font-face {
+            font-family: 'brandon';
+            src: url(./HvDTrial_Brandon_Grotesque_medium-BF64a625c84a521.otf);
         }
 
         .normal{
@@ -91,12 +96,32 @@
         align-items: center;
         }
 
+        .topic{
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .topic h2{
+            font-family: brandon;
+            margin-right: 30px;
+            font-size: 22px;
+        }
+
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
     </style>
 </head>
 <body class="body">
     <nav>
         <h1>Zenful Zone</h1>
-        <div>
+        <div style="display: flex;" class="topic">
+            <a href="./../music/music.html"><h2>Music</h2></a>
+            <a href="#"><h2>Scenes</h2></a>
+            <a href=""><h2>Exercises</h2></a>
             <i class="material-icons">account_circle</i>
             <i class="material-icons">expand_more</i>
         </div>
