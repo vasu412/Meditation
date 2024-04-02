@@ -73,6 +73,10 @@ body{
         background: linear-gradient(to right, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
     }
 } */
+a{
+    text-decoration: none;
+    color: black;
+}
 
 .first{
     display: flex;

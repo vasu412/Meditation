@@ -1,0 +1,33 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: 'js';
+    src: url(/main/JennaSue.ttf);
+}
+
+nav{
+    height: 100px;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    align-items: center;
+}
+
+nav h1{
+    font-family: js;
+    font-size:40px;
+    letter-spacing: 1px;
+}
+
+.normal{
+    /* display: inline; */
+    font-family: 'js';
+    text-align: center;
+    font-size: 80px;
+    margin: 50px;
+}

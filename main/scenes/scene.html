@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .scenes{
+            display: flex;
+            flex-wrap: wrap;
+            /* overflow: hidden; */
+            margin-left: 30px;
+            margin-right: 35px;
+            margin-bottom: 50px;
+            /* position: relative; */
+        
+        }
+        .mainBox2{
+            display: flex;
+            flex-direction: column;
+            transition: all 1.5s ease;
+        }
+
+        .musicBox{
+            height: 322px;
+            min-width: 322px;
+            border-radius: 10px;
+            overflow: scroll;
+            margin-right: 20px;
+            margin-bottom: 15px;
+            background-position:center ;
+            background-size: cover;
+        }
+
+        @font-face {
+            font-family: 'js';
+            src: url(/main/JennaSue.ttf);
+        }
+
+        .normal{
+            /* display: inline; */
+            font-family: 'js';
+            text-align: center;
+            font-size: 80px;
+            margin: 50px;
+        }
+
+        .fullSize{
+            height: 95vh;
+            width: 100vw;
+            position: fixed;
+            z-index: 600;
+            top:0;
+            display: none;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+
+        .black{
+            height: 100vh;
+            width: 100vw;
+            top: 0;
+            background-color: black;
+            z-index: 500;
+            position: fixed;
+            display: none;
+        }
+        nav{
+            height: 100px;
+            width: 100vw;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            align-items: center;
+        }
+
+        nav h1{
+            font-family: js;
+            font-size:40px;
+            letter-spacing: 1px;
+        }
+
+        #customControls {
+        display: flex;
+        align-items: center;
+        }
+
+    </style>
+</head>
+<body class="body">
+    <nav>
+        <h1>Zenful Zone</h1>
+        <div>
+            <i class="material-icons">account_circle</i>
+            <i class="material-icons">expand_more</i>
+        </div>
+        
+    </nav>
+    <h1 class="normal"><span  class="italic">Scenes</span> For Meditation</h1>
+    <div class="scenes"></div>
+    <div class="black">
+        <i class="material-icons" id="cross2" style="color: white; position: absolute; right: 10px; top:5px;z-index: 999; cursor: pointer;">close</i>
+    </div>
+    <script src="scene.js"></script>
+</body>
+</html>
