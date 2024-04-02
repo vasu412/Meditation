@@ -284,12 +284,6 @@ function call(data){
 
                     body.style.overflow = 'hidden'
                 }) 
-
-                // if (tracks.length > 0) {
-                //   console.log('Artist Top Tracks:', tracks);
-                // } else {
-                //   console.log('No tracks found for the artist');
-                // }
               })
 
              

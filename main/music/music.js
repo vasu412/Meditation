@@ -62,7 +62,7 @@ function call(data){
     // Call the function to fetch playlists
     async function aaa(){
         let playData = await fetchPlaylists();
-        console.log(playData)
+        // console.log(playData)
         playData.forEach(ele => {
             let h1 = document.createElement('h3');
             h1.classList.add('h1')
@@ -95,6 +95,7 @@ function call(data){
         }
     
         const data = await response.json();
+        // console.log(data.items)
         data.items.forEach((x)=>{
             let mainBox = document.createElement('div');
             mainBox.classList.add('mainBox');
@@ -103,7 +104,19 @@ function call(data){
                 <p class="type">Music</p>
                 <p class="albumName">${x.track.name}</p>
             `
-            
+            let audio = new Audio(x.track.preview_url);
+            // let isPlaying = false;
+        
+            mainBox.addEventListener('click', () => {
+                audio.play()
+                // if (isPlaying) {
+                //     audio.pause(); // Pause the audio if it's currently playing
+                // } else {
+                //     audio.play(); // Otherwise, play the audio
+                // }
+                // isPlaying = !isPlaying; // Toggle the playing state
+            });
+
             music.appendChild(mainBox)
         })
 
