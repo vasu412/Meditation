@@ -188,7 +188,9 @@ function call(data){
             let followers = x.followers.total;
             // album[0].toUpper
             mainBox.innerHTML = `
-                <div class="musicBox" style="background-image:url(${x.images[0].url})"></div>
+                <div class="musicBox" style="background-image:url(${x.images[0].url})">
+                <input type="button" value="Play" class="input" id="input">
+                </div>
                 <p class="type">${album}rtists</p>
                 <p class="albumName">${x.name}</p>
             `
@@ -219,12 +221,12 @@ function call(data){
                         currentAudio = null;
                     }
                 
-                    black.style.display = 'block';
+                    // black.style.display = 'block';
                     black.style.backgroundColor = 'white';
                     let songBox = document.querySelector('.songBox');
                     songBox.style.display = 'block';
                     songBox.innerHTML = `
-                        <i class="material-icons" id="cross" style="color: white; position: absolute; right: 5px; top:5px">close</i>
+                        <i class="material-icons" id="cross" style="color: white; position: fixed; right: 34px; top:40px">close</i>
                     `;
                     songBox.innerHTML += `
                         <div class="intro">
@@ -251,7 +253,7 @@ function call(data){
                         }
                         table.innerHTML = `
                             <div class="songData">
-                                <span class="num">${num}</span>
+                                <span class="num" style='display:block'>${num}</span>
                                 <i class='material-icons arrow' style="display:none">play_arrow</i>
                                 <img src="${x.album.images[0].url}" class="songimg">
                                 <span>${x.name}</span>
@@ -261,16 +263,37 @@ function call(data){
                 
                         var audio = new Audio(`${x.preview_url}`);
                         // audio.controls = true;
-                
+                        let count =0;
                         table.addEventListener('click', () => {
+                            table.style.backgroundColor = '#519882a1'
+
                             // Pause the current audio if it exists
-                            if (currentAudio) {
+                            if (currentAudio && currentAudio!=audio) {
                                 currentAudio.pause();
+                                document.querySelectorAll('.table').forEach((element) => {
+                                    element.style.backgroundColor = 'transparent';
+                                    
+                                });
+                                
+                                count =0;
+                            }
+                            audio.play();
+                            table.style.backgroundColor='#519882a1'
+
+                            if(currentAudio==audio){
+                                currentAudio.pause()
+                                table.style.backgroundColor='transparent'
+
+                                if(count%2==1) {
+                                    currentAudio.play();
+                                    table.style.backgroundColor='#519882a1'
+                                }
+                                count++;
                             }
                             // Play the clicked audio
-                            audio.play();
                             // Update the currently playing audio
                             currentAudio = audio;
+                            // table.style.backgroundColor='transparent'
                         });
 
                         audio.addEventListener('ended', () => {
@@ -301,8 +324,6 @@ function call(data){
                     body.style.overflow = 'hidden'
                 }) 
               })
-
-             
         })
         
     })
@@ -339,7 +360,7 @@ circle2.addEventListener('click',()=>{
     circle2.style.display = 'none'
 })
 
-
+let nav = document.querySelector('.nav')
 async function nature(){
     let apiKey = '42868898-ed34784613294936d0d4f6293';
     let searchQuery = 'nature and meditation';
@@ -352,10 +373,13 @@ async function nature(){
             mainBox2.classList.add('mainBox2');
             // album[0].toUpper
             mainBox2.innerHTML = `
-                <div class="musicBox" style="background-image:url(${x.videos.large.thumbnail})"></div>
+                <div class="musicBox" style="background-image:url(${x.videos.large.thumbnail})">
+                <input type="button" value="Play" class="input" id="input">
+                </div>
             `
 
             mainBox2.addEventListener('click',()=>{
+                nav.style.display='none';
                 var video = x.videos.large.url;
                 let fullSize = document.createElement('div');
                 fullSize.classList.add('fullSize');
@@ -378,7 +402,7 @@ async function nature(){
                     body.style.overflow = 'scroll'
                     videoElement.currentTime = 0
                     videoElement.currentTime = 100000
-
+                    nav.style.display='flex'
                 })
 
                 videoElement.addEventListener('ended', function() {

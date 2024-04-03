@@ -19,12 +19,17 @@ body{
 }
 
 nav{
-    height: 100px;
+    height: 80px;
     width: 100vw;
     display: flex;
     justify-content: space-between;
     padding: 0 50px;
     align-items: center;
+    background-color: #e3e2e2;
+    position: sticky;
+    top: 0;
+    margin-bottom: 90px;
+    z-index: 9999;
 }
 
 nav h1{

@@ -55,7 +55,7 @@ console.log(scenes)
 
 // nature();
 
-
+let nav = document.querySelector('.nav')
 async function nature() {
     const apiKey = '42868898-ed34784613294936d0d4f6293'; // Replace with your Pixabay API key
     const searchQuery = 'nature and meditation';
@@ -70,9 +70,12 @@ async function nature() {
             const mainBox2 = document.createElement('div');
             mainBox2.classList.add('mainBox2');
             mainBox2.innerHTML = `
-                <div class="musicBox" style="background-image:url(${x.videos.large.thumbnail})"></div>
+                <div class="musicBox" style="background-image:url(${x.videos.large.thumbnail})">
+                <input type="button" value="Play" class="input" id="input">
+                </div>
             `;
             mainBox2.addEventListener('click', () => {
+                nav.style.display='none';
                 const fullSize = document.createElement('div');
                 fullSize.classList.add('fullSize');
                 fullSize.style.display = 'block';
@@ -88,6 +91,7 @@ async function nature() {
                 document.body.append(fullSize);
                 const cross2 = document.getElementById('cross2');
                 cross2.addEventListener('click', () => {
+                    nav.style.display='flex';
                     black.style.display = 'none';
                     fullSize.style.display = 'none';
                     videoElement.pause();

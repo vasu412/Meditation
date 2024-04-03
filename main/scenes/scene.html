@@ -41,6 +41,7 @@
             margin-bottom: 15px;
             background-position:center ;
             background-size: cover;
+            position: relative;
         }
 
         @font-face {
@@ -82,12 +83,17 @@
             display: none;
         }
         nav{
-            height: 100px;
+            height: 80px;
             width: 100vw;
             display: flex;
             justify-content: space-between;
             padding: 0 50px;
             align-items: center;
+            background-color: #e3e2e2;
+            position: sticky;
+            top: 0;
+            margin-bottom: 90px;
+            z-index: 9999;
         }
 
         nav h1{
@@ -117,16 +123,41 @@
             text-decoration: none;
             color: black;
         }
+        input{
+    background-color: #d1d1d198;
+    border: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+    padding-left: 10px;
+    font-size: 20px;
+    font-family:'brandon';
+    font-weight: 100;
+    /* color: #767676; */
+    color: rgba(0, 0, 0, 0.947);
+    letter-spacing: 1px;
+    position: absolute;
+    bottom: 40px;
+    left: 110px;
+    text-align: center;
+    /* display: none; */
+    opacity: 0;
+    transition: all 0.7s ease;
+  }
+
+  .musicBox:hover input{
+    opacity: 1;
+  }
 
     </style>
 </head>
 <body class="body">
-    <nav>
+    <nav class="nav">
         <a href="../../index.html"><h1>Zenful Zone</h1></a>
         <div style="display: flex;" class="topic">
             <a href="./../music/music.html"><h2>Music</h2></a>
             <a href="#"><h2>Scenes</h2></a>
-            <a href=""><h2>Exercises</h2></a>
+            <a href="./../../Exercise/ex.html"><h2>Exercises</h2></a>
             <i class="material-icons">account_circle</i>
             <i class="material-icons">expand_more</i>
         </div>
