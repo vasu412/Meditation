@@ -159,12 +159,12 @@ button{
     transition: all 0.5s ease-in-out;
     box-shadow: 2px 10px 5px rgba(0, 0, 0, 0.135),-2px -2px 5px rgba(0, 0, 0, 0.135);
 } */
-@media  (max-width:1440px) {
+/* @media  (min-width:1430px) {
     #search{
         left: 70vw;
         top:41vh;
     }
-}
+} */
 
 @media  (max-width:1024px) {
 
