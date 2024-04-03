@@ -111,7 +111,7 @@ a{
 }
 
 .images{
-    height: 520px;
+    height: 580px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -119,17 +119,17 @@ a{
     overflow:hidden;
     padding-left: 255px;
     position: relative;
-    margin-top: 60px;
+    margin: 40px 0;
 }
 
 .boxes{
-    height: 455px;
-    width: 256px;
+    height: 500px;
+    width: 290px;
     margin-right: 20px;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    border-radius: 10px;
+    border-radius: 15px;
     color: white;
     font-family: 'js';
     font-size: 40px;
@@ -210,7 +210,7 @@ a{
     background-color: white;
     position: absolute;
     right: 10px;
-    top: 130vh;
+    top: 150vh;
     text-align: center;
     z-index: 99;
     cursor: pointer;

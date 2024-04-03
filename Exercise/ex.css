@@ -79,9 +79,17 @@ body{
     min-width: 322px;
     border-radius: 10px;
     margin-right: 50px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     background-position:center ;
     background-size: cover;
+}
+
+.e1{
+    /* text-align: center; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .e1 h1{
@@ -128,7 +136,12 @@ body{
 
 .musicTitle{
     display: flex;
-    position: relative;
+    /* justify-content: start; */
+    align-items: center;
+    gap: 1%;
+    padding-left: 10px;
+    /* border: 2px solid red; */
+    /* position: relative; */
 }
 
     input:focus{

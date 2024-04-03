@@ -115,7 +115,7 @@ let interval = setInterval(()=>{
     // if(val>1300){
     //     val=-val;
     // }
-},10)
+},50)
 
 function loop (val){
     boxes.forEach((x)=>{
