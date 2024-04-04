@@ -30,22 +30,35 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
   }
 
 
-  function speak(text){
-      var msg = new SpeechSynthesisUtterance();
-      msg.text = text;
+  var currentSpeechUtterance = null;
 
-      msg.volume = 1; // 0 to 1
-      msg.rate = 1; // 0.1 to 10
-      msg.pitch = 1; // 0 to 2
-
-      // Get the list of available voices
-      // var voices = window.speechSynthesis.getVoices();
-      // var desiredVoice = voices.find(voice => voice.name === 'Google UK English Female');
-      // // console.log(voices)
-
-      // // Optionally, set the voice
-      // msg.voice = desiredVoice;
-      window.speechSynthesis.speak(msg);
+  // Function to speak the given text
+  function speak(text) {
+    // Stop any ongoing speech
+    if (currentSpeechUtterance) {
+      speechSynthesis.cancel();
+      currentSpeechUtterance = null;
+    }
+  
+    // Create a new SpeechSynthesisUtterance instance
+    var message = new SpeechSynthesisUtterance(text);
+  
+    // Speak the message
+    speechSynthesis.speak(message);
+  
+    // Update the current speech utterance variable
+    currentSpeechUtterance = message;
+  }
+  
+  // Function to stop speech
+  function stopSpeaking() {
+    // Check if there is an ongoing speech utterance
+    if (currentSpeechUtterance) {
+      // Cancel the ongoing speech
+      speechSynthesis.cancel();
+      // Reset the current speech utterance variable
+      currentSpeechUtterance = null;
+    }
   }
 
 

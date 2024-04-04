@@ -15,9 +15,9 @@
     <nav class="nav">
         <a href="../index.html"><h1>Zenful Zone</h1></a>
         <div style="display: flex;" class="topic">
-            <a href="#"><h2>Home</h2></a>
-            <a href="./music/music.html"><h2>Music</h2></a>
-            <a href="./scenes/scene.html"><h2>Scenes</h2></a>
+            <a href="./../main/main.html"><h2>Home</h2></a>
+            <a href="./../main/music/music.html"><h2>Music</h2></a>
+            <a href="./../main/scenes/scene.html"><h2>Scenes</h2></a>
             <a href="./../Exercise/ex.html"><h2>Exercises</h2></a>
             <i class="material-icons">account_circle</i>
             <i class="material-icons">expand_more</i>
@@ -56,43 +56,71 @@
         const genAI = new GoogleGenerativeAI(API_KEY);
 
         let box = document.querySelector('.inputText')
-
+        let num1 =0;
         async function run(val) {
             // For text-only input, use the gemini-pro model
-            const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
-            const prompt = val
+            const prompt = val;
 
             const result = await model.generateContent(prompt);
             const response = await result.response;
-            const text = response.text();
-            console.log(text)
+            const text = await response.text();
             const messageElement = document.createElement("p");
-            messageElement.style.margin ='10px 0'
+            messageElement.style.margin = '10px 0';
             messageElement.innerText = text;
             box.appendChild(messageElement);
-            let div = document.createElement('div');
-            div.innerHTML = `
-            <i class='material-icons vol' style='font-size:15px' onclick='speak(${text})'>volume_up</i>
-            <i class='material-icons copy' style='font-size:15px'>content_copy</i>
-            `
-            box.appendChild(div)
-            let hr = document.createElement('hr')
-            box.appendChild(hr)
 
-            // let vol = document.querySelector('.vol');
-            // vol.addEventListener('click',speak(text))
+            let vol = document.createElement('i');
+            vol.classList.add('material-icons', 'vol');
+            vol.style.fontSize = '15px';
+            vol.style.cursor = 'pointer';
+            vol.textContent = 'volume_up';
+            vol.addEventListener('click', () => {
+                num1++;
+                if(num1%2==1)speak(text);
+                else stopSpeaking()
+                
+            });
+            box.appendChild(vol);
+
+            // Create copy button and attach event listener
+            let copyButton = document.createElement('i');
+            copyButton.classList.add('material-icons', 'copy');
+            copyButton.style.fontSize = '15px';
+            copyButton.style.cursor = 'pointer';
+            copyButton.textContent = 'content_copy';
+            copyButton.addEventListener('click', () => {
+                navigator.clipboard.writeText(text)
+                    .then(() => {
+                        alert('Copied to clipboard: ' + text);
+                    })
+                    .catch(error => {
+                        console.error('Unable to copy text to clipboard: ', error);
+                    });
+            });
+            box.appendChild(copyButton);
+
+            let hr = document.createElement('hr');
+            box.appendChild(hr);
+
+
         }
+
         let input = document.querySelector('.input')
         let btn = document.querySelector('.button')
+
+
         btn.addEventListener('click',()=>{
             let val = input.value;
-            console.log(val)
             const messageElement = document.createElement("p");
             messageElement.style.margin ='10px 0'
             messageElement.innerText = val;
             box.appendChild(messageElement);
-            run(val);
+            async function wait(){
+                const text = await run(val);
+            }
+            wait()
             input.value=''
         })
       </script>
