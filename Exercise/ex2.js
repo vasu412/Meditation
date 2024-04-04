@@ -19,3 +19,7 @@ function changeText() {
 
 // Start the loop
 setInterval(changeText(),val);
+
+
+
+

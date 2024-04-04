@@ -63,20 +63,22 @@ body{
     text-align: center;
     font-size: 80px;
     margin: 50px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
 }
 
 .exercises{
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
-    margin-left: 40px;
+    /* margin-left: 40px; */
     margin-bottom: 60px;
+    margin-top: 20px;
+    /* width:323px; */
 }
 
-.exercises div{
-    height: 322px;
-    min-width: 322px;
+.d1,.d2{
+    height: 380px;
+    width: 380px;
     border-radius: 10px;
     margin-right: 50px;
     /* margin-bottom: 15px; */
@@ -95,6 +97,12 @@ body{
 .e1 h1{
     font-size: 22px;
     font-family: brandon;
+}
+
+.e1 p,.e1 a{
+    font-family: brandon;
+    padding: 0 10px;
+    color:gray;
 }
 
 .d1{
@@ -136,7 +144,7 @@ body{
 
 .musicTitle{
     display: flex;
-    /* justify-content: start; */
+    justify-content: center;
     align-items: center;
     gap: 1%;
     padding-left: 10px;
@@ -163,7 +171,7 @@ body{
     letter-spacing: 1px;
     position: absolute;
     bottom: 40px;
-    left: 110px;
+    left: 140px;
     text-align: center;
     /* display: none; */
     opacity: 0;
