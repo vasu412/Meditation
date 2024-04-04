@@ -66,6 +66,10 @@ async function fetchPlaylistTracks(accessToken, playlistId) {
     }
 }
 
+let currentlyPlayingAudio = null;
+let currentPlayButton = null;
+let currentPauseButton = null;
+
 async function displayPlaylists(accessToken, playlists) {
     try {
         for (const playlist of playlists) {
@@ -80,9 +84,6 @@ async function displayPlaylists(accessToken, playlists) {
             all.appendChild(music);
 
             const tracks = await fetchPlaylistTracks(accessToken, playlist.id);
-            let currentlyPlayingAudio = null;
-            let currentPlayButton = null;
-            let currentPauseButton = null;
 
             tracks.forEach(track => {
                 const mainBox = document.createElement('div');
