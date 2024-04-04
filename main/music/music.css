@@ -159,6 +159,21 @@ button{
     align-items: center;
   }
 
+  .topic2{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    gap: 15px;
+    height: fit-content;
+    font-family: brandon;
+    background-color:#d2d0d0;
+    font-size: 10px;
+    position: sticky;
+    top:80px;
+    z-index: 999;
+    display: none;
+}
+
 /* .musicBox:hover{
     margin-bottom: 25px;
     transition: all 0.5s ease-in-out;
@@ -190,6 +205,14 @@ button{
 @media  (max-width:425px) {
     nav h1{
         font-size: 30px;
+    }
+
+    nav{
+        margin-bottom: 0;
+    }
+
+    .topic2{
+        display: flex;
     }
 
     nav .topic a{ 

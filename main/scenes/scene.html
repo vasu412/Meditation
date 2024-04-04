@@ -142,6 +142,20 @@
             opacity: 0;
             transition: all 0.7s ease;
         }
+        .topic2{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+            gap: 15px;
+            height: fit-content;
+            font-family: brandon;
+            background-color:#d2d0d0;
+            font-size: 10px;
+            position: sticky;
+            top:80px;
+            z-index: 999;
+            display: none;
+        }
 
   .musicBox:hover input{
     opacity: 1;
@@ -160,6 +174,12 @@
     }
 
     @media (max-width:425px){
+        nav{
+            margin-bottom: 0;
+        }
+        .topic2{
+            display: flex;
+        }
         .topic h2{
             display: none;
         }
@@ -227,6 +247,12 @@
         </div>
         
     </nav>
+    <div class="topic2">
+        <a href="../../index.html"><h2>Home</h2></a>
+        <a href="./../music/music.html"><h2>Music</h2></a>
+        <a href="#"><h2>Scenes</h2></a>
+        <a href="./../../Exercise/ex.html"><h2>Exercises</h2></a>
+    </div>
     <h1 class="normal"><span  class="italic">Scenes</span> For Meditation</h1>
     <div class="scenes"></div>
     <div class="black">
