@@ -1,17 +1,3 @@
-// let text = document.querySelector('.change');
-// window.addEventListener('load',()=>{
-//     setTimeout(()=>{
-//         text.innerHTML = 'HOLD'
-//     },3050)
-
-//     setTimeout(()=>{
-//         text.innerHTML = 'EXHALE'
-//     },6700)
-
-//     setTimeout(()=>{
-//         text.innerHTML = 'INHALE'
-//     },12000)
-// })
 
 const texts = [
     { text: "INHALE", duration: 3140 }, // Text 1 displayed for 2 seconds
@@ -32,5 +18,7 @@ function changeText() {
     val+=12000;
 }
 
+let btn = document.querySelector('.button')
+let circle = document.querySelector('.circle')
 // Start the loop
-setInterval(changeText(),val);
+let num =0;
