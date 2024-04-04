@@ -71,8 +71,17 @@
             messageElement.style.margin ='10px 0'
             messageElement.innerText = text;
             box.appendChild(messageElement);
+            let div = document.createElement('div');
+            div.innerHTML = `
+            <i class='material-icons vol' style='font-size:15px' onclick='speak(${text})'>volume_up</i>
+            <i class='material-icons copy' style='font-size:15px'>content_copy</i>
+            `
+            box.appendChild(div)
             let hr = document.createElement('hr')
             box.appendChild(hr)
+
+            // let vol = document.querySelector('.vol');
+            // vol.addEventListener('click',speak(text))
         }
         let input = document.querySelector('.input')
         let btn = document.querySelector('.button')
@@ -86,30 +95,6 @@
             run(val);
             input.value=''
         })
-
-        // Create a new instance of SpeechRecognition
-
-        // if ('SpeechRecognition' in window) {
-        // const recognition = new SpeechRecognition();
-        // recognition.lang = 'en-US';
-
-        // recognition.onresult = (event) => {
-        //     const transcript = event.results[0][0].transcript;
-        //     console.log('User said:', transcript);
-        // };
-
-    // }
-
-        // recognition.start();
-
-        // const utterance = new SpeechSynthesisUtterance();
-        // utterance.text = 'Hello, how can I help you?';
-        // speechSynthesis.speak(utterance);
-
-        // document.getElementById('speechButton').addEventListener('click', () => {
-        //     recognition.start();
-        // });
-
       </script>
 </body>
 </html>

@@ -175,7 +175,7 @@ button{
 
     #search{
         left: 78.5vw;
-        top:44vh;
+        top:46vh;
     }
 }
 
@@ -183,7 +183,7 @@ button{
 
     #search{
         left: 87.5vw;
-        top:43.3vh;
+        top:45.9vh;
     }
 }
 
@@ -202,7 +202,7 @@ button{
 
     #search{
         left: 82.5vw;
-        top:56.3vh;
+        top:58.9vh;
     }
 }
 
@@ -217,11 +217,12 @@ button{
 
     input{
         width: 250px;
+        font-size: 15px;
     }
 
     #search{
         left: 80.5vw;
-        top:56.3vh;
+        top:58.9vh;
     }
 }
 
@@ -236,10 +237,11 @@ button{
 
     input{
         width: 220px;
+        font-size: 15px;
     }
 
     #search{
         left: 82.5vw;
-        top:56.3vh;
+        top:58.9vh;
     }
 }

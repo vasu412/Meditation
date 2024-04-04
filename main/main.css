@@ -431,6 +431,53 @@ input{
     opacity: 1;
   }
 
+
+@media (max-width:1024px) {
+    .first {
+        padding: 30px 130px;
+        /* text-align:start; */
+    }
+
+    .circle,.circle2,.circle3,.circle4{
+        display: none;
+    }
+
+    .music,.scenes{
+        overflow: scroll;
+    }
+    .songBox{
+        margin: 25px;
+    }
+}
+
+@media (max-width:768px) {
+    .first .title{
+        font-size: 30px;
+        /* text-align:start; */
+    }
+
+    .first{
+        padding: 30px 100px;
+    }
+    .circle,.circle2,.circle3,.circle4{
+        display: none;
+    }
+
+    .music,.scenes{
+        overflow: scroll;
+    }
+
+    .intro .img{
+        height: 180px;
+        width: 180px;
+    }
+
+    .intro .imgInfo .h1{
+        font-size: 50px;
+    }
+}
+
+
 @media  (max-width:425px) {
     nav h1{
         font-size: 30px;
@@ -452,6 +499,13 @@ input{
         height: 280px;
         width:  280px;
     }
+    .circle,.circle2,.circle3,.circle4{
+        display: none;
+    }
+
+    .music,.scenes{
+        overflow: scroll;
+    }
 /* 
     .circle,.circle4{
         display: none;
@@ -469,23 +523,68 @@ input{
     .calm{
         font-size: 25px;
     }
+
+    .songBox{
+        margin: 10px;
+        height: 95vh;
+    }
+
+    .intro .img{
+        height: 150px;
+        width: 200px;
+        margin-left: 20px;
+    }
+
+    .intro .imgInfo .h1{
+        font-size: 30px;
+    }
 }
 
-@media (max-width:768px) {
+@media  (max-width:375px){
+    .first{
+        padding: 0;
+    }
+
     .first .title{
         font-size: 30px;
-        /* text-align:start; */
+        width: 300px;
+        /* text-align: center; */
     }
 
-    .first{
-        padding: 30px 100px;
+    .images{
+        margin-top: 0;
+    }
+
+    .musicBox{
+        height: 200px;
+        width: 200px;
+        /* position: relative; */
+    }
+
+    .circle,.circle2,.circle3,.circle4{
+        display: none;
+    }
+
+    .music,.scenes{
+        overflow: scroll;
+    }
+
+    .songBox{
+        height: 97vh;
+    }
+
+    .songData .num{
+        margin-left: 10px;
+        margin-right: 0;
+    }
+
+    .songData img{
+        margin-left: 10px;
+        height: 30px;
+        width: 30px;
+    }
+
+    .songData span ,.time{
+        font-size: 12px;
     }
 }
-
-@media (max-width:1024px) {
-    .first {
-        padding: 30px 130px;
-        /* text-align:start; */
-    }
-}
-

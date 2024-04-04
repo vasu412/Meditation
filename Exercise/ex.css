@@ -181,5 +181,58 @@ body{
   .e1:hover input{
     opacity: 1;
   }
+
+  .box{
+    height: fit-content; text-align: center;width: 322px; margin-right: 50px; margin-top: 10px;
+  }
   
+  @media (max-width:768px){
+    .e1{
+        margin-right: 0;
+        width: 400px;
+    }
+
+    .d2,.d1{
+        margin-right: 0;
+        width: 350px;
+    }
+    .exercises{
+        margin: 0 10px;
+    }
+
+    .box{
+        margin: 0;
+        margin-top: 10px;
+    }
+  }
+
+  @media (max-width:425px){
+    .topic h2{
+        display: none;
+    }
+
+    .d2,.d1{
+        margin-right: 0;
+        width: 250px;
+        height: 250px;
+    }
+
+    .exercises{
+        flex-wrap: wrap;
+    }
+
+    .e1{
+        margin-bottom: 30px;
+
+    }
+  }
   
+  @media (max-width:375px){
+    .calm{
+        font-size: 25px;
+    }
+
+    .normal{
+        font-size: 60px;
+    }
+  }

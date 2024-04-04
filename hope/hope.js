@@ -29,19 +29,25 @@ if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
     console.log('Speech recognition not supported in this browser.');
   }
 
-var msg = new SpeechSynthesisUtterance();
-msg.text = "Hello, world! how are you what are you doing?";
 
-// msg.volume = 1; // 0 to 1
-// msg.rate = 1; // 0.1 to 10
-// msg.pitch = 1; // 0 to 2
+  function speak(text){
+      var msg = new SpeechSynthesisUtterance();
+      msg.text = text;
 
-// // Get the list of available voices
-// var voices = window.speechSynthesis.getVoices();
+      msg.volume = 1; // 0 to 1
+      msg.rate = 1; // 0.1 to 10
+      msg.pitch = 1; // 0 to 2
 
-// Optionally, set the voice
-// msg.voice = voices[1];
-window.speechSynthesis.speak(msg);
+      // Get the list of available voices
+      // var voices = window.speechSynthesis.getVoices();
+      // var desiredVoice = voices.find(voice => voice.name === 'Google UK English Female');
+      // // console.log(voices)
+
+      // // Optionally, set the voice
+      // msg.voice = desiredVoice;
+      window.speechSynthesis.speak(msg);
+  }
+
 
 // window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 // var recognition = new SpeechRecognition();
