@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zenful HOPE</title>
+    <link rel="stylesheet" href="hope.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" href="./../main/icons8-meditation-64.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+</head>
+<body>
+
+    
+
+    <script src="hope.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "@google/generative-ai": "https://esm.run/@google/generative-ai"
+          }
+        }
+      </script>
+      <script type="module">
+        import { GoogleGenerativeAI } from "@google/generative-ai";
+  
+        // Fetch your API_KEY
+        const API_KEY = "AIzaSyB3avai4m_9-bRDx1v2A3PfA5tXRXUl6ag";
+
+        // // Access your API key (see "Set up your API key" above)
+        const genAI = new GoogleGenerativeAI(API_KEY);
+
+        async function run() {
+        // For text-only input, use the gemini-pro model
+        const model = genAI.getGenerativeModel({ model: "gemini-pro"});
+
+        const chat = model.startChat({
+            history: [
+            {
+                role: "user",
+                parts: [{ text: "Hello, I have 2 dogs in my house." }],
+            },
+            {
+                role: "model",
+                parts: [{ text: "Great to meet you. What would you like to know?" }],
+            },
+            ],
+            generationConfig: {
+            maxOutputTokens: 100,
+            },
+
+        });
+
+        const msg = "How many paws are in my house?";
+
+        const result = await chat.sendMessage(msg);
+        const response = await result.response;
+        const text = response.text();
+        console.log(text);
+        }
+
+        run();
+      </script>
+</body>
+</html>

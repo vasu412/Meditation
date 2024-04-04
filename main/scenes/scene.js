@@ -163,38 +163,48 @@ async function searchNatureSounds() {
 
 searchNatureSounds();
 
+function showMessage(message) {
+    // Create a new div element
+    var messageElement = document.createElement('div');
+    
+    // Set the text content
+    messageElement.textContent = message;
+    
+    // Apply styles
+    messageElement.style.position = 'fixed';
+    // messageElement.style.top = '50%';
+    messageElement.style.bottom = '30px';
+    messageElement.style.right = '-100%'; // Initially off-screen to the right
+    messageElement.style.transform = 'translateX(-50%)';
+    messageElement.style.backgroundColor = 'rgba(0, 0, 0, 0.584)'; // Blue color
+    messageElement.style.color = 'cyan'; // White color
+    messageElement.style.padding = '10px 20px';
+    messageElement.style.borderRadius = '10px';
+    messageElement.style.fontFamily = 'brandon';
+    messageElement.style.transition = 'right 0.5s ease-in-out'; // Animation
+    
+    // Append the element to the body
+    document.body.appendChild(messageElement);
+    
+    // Trigger reflow
+    messageElement.getBoundingClientRect();
+    
+    // Slide the element into view
+    messageElement.style.right = '20px'; // Adjust the distance from the right side
+    
+    // Hide the element after 3 seconds
+    setTimeout(function() {
+        // Slide the element out of view
+        messageElement.style.right = '-100%'; // Off-screen to the right
+        
+        // Remove the element from the DOM after animation completes
+        setTimeout(function() {
+            messageElement.remove();
+        }, 1500); // Adjust timing to match the animation duration
+    }, 3000); // Adjust timing to match the desired display duration
+}
 
-// const fetch = require('node-fetch');
-
-// const apiKey = 'AIzaSyA31xiX6n9H_vSCijw5DSDxqWJGgul5eJs';
-// const searchQuery = 'nature meditation';
-// const maxResults = 20; // Maximum number of results to retrieve
-
-// async function searchNatureMeditationVideos() {
-//   try {
-//     const response = await fetch(`https://www.googleapis.com/youtube/v3/search?key=${apiKey}&q=${encodeURIComponent(searchQuery)}&type=video&maxResults=${maxResults}`);
-
-//     if (!response.ok) {
-//       throw new Error('Failed to fetch nature meditation videos');
-//     }
-
-//     const data = await response.json();
-//     const videoIds = data.items.map(item => item.id.videoId);
-//     console.log('Nature Meditation Video IDs:', videoIds);
-
-//     // Embed videos using the YouTube embedded player
-//     videoIds.forEach(videoId => {
-//       const iframe = document.createElement('iframe');
-//       iframe.src = `https://www.youtube.com/embed/${videoId}`;
-//       iframe.width = '560'; // Set width of embedded player
-//       iframe.height = '315'; // Set height of embedded player
-//       iframe.allowFullscreen = true; // Allow fullscreen mode
-//       document.body.appendChild(iframe); // Append iframe to DOM
-//     });
-//   } catch (error) {
-//     console.error('Error fetching nature meditation videos:', error.message);
-//   }
-// }
-
-// searchNatureMeditationVideos();
-
+// Call the showMessage function with your desired message
+setInterval(function() {
+    showMessage("Talk to HOPE!!");
+}, 6000);

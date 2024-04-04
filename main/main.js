@@ -509,8 +509,8 @@ function showMessage(message) {
     messageElement.style.bottom = '30px';
     messageElement.style.right = '-100%'; // Initially off-screen to the right
     messageElement.style.transform = 'translateX(-50%)';
-    messageElement.style.backgroundColor = '#e3e2e2b4'; // Blue color
-    messageElement.style.color = 'black'; // White color
+    messageElement.style.backgroundColor = 'rgba(0, 0, 0, 0.584)'; // Blue color
+    messageElement.style.color = 'cyan'; // White color
     messageElement.style.padding = '10px 20px';
     messageElement.style.borderRadius = '10px';
     messageElement.style.fontFamily = 'brandon';
