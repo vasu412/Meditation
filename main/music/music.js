@@ -196,7 +196,6 @@ function showMessage(message) {
     
     // Slide the element into view
     messageElement.style.right = '20px'; // Adjust the distance from the right side
-    
     // Hide the element after 3 seconds
     setTimeout(function() {
         // Slide the element out of view
