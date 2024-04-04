@@ -396,6 +396,10 @@ a{
     display: none;
 }
 
+input:focus{
+    outline: none;
+}
+
 input{
     background-color: #d1d1d198;
     border: none;

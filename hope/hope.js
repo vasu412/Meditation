@@ -1,35 +1,52 @@
-// import { GoogleGenerativeAI } from "@google/generative-ai";
+ let count =0;
+if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
+    // Create a new instance of SpeechRecognition
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const recognition = new SpeechRecognition();
+    recognition.lang = 'en-US';
 
-// // Access your API key (see "Set up your API key" above)
-// const genAI = new GoogleGenerativeAI(API_KEY);
+    // Event listener for when speech is recognized
+     recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      input.value = transcript;
+      input.focus()
+    //   document.getElementById('transcript').textContent = 'You said: ' + transcript;
+    };
 
-// // Converts a File object to a GoogleGenerativeAI.Part object.
-// async function fileToGenerativePart(file) {
-//   const base64EncodedDataPromise = new Promise((resolve) => {
-//     const reader = new FileReader();
-//     reader.onloadend = () => resolve(reader.result.split(',')[1]);
-//     reader.readAsDataURL(file);
-//   });
-//   return {
-//     inlineData: { data: await base64EncodedDataPromise, mimeType: file.type },
-//   };
-// }
+    // Event listener for when the button is clicked
+    document.getElementById('speechButton').addEventListener('click', () => {
+      count++;
+      if(count%2==0){
+        recognition.stop()
+        document.querySelector(".input").placeholder = "Enter a prompt here";
+      }
+      else {
+        recognition.start();
+        document.querySelector(".input").placeholder = "Listening!!";
+      }
+    });
+  } else {
+    console.log('Speech recognition not supported in this browser.');
+  }
 
-// async function run() {
-//   // For text-and-images input (multimodal), use the gemini-pro-vision model
-//   const model = genAI.getGenerativeModel({ model: "gemini-pro-vision" });
+var msg = new SpeechSynthesisUtterance();
+msg.text = "Hello, world! how are you what are you doing?";
 
-//   const prompt = "What's different between these pictures?";
+// msg.volume = 1; // 0 to 1
+// msg.rate = 1; // 0.1 to 10
+// msg.pitch = 1; // 0 to 2
 
-//   const fileInputEl = document.querySelector("input[type=file]");
-//   const imageParts = await Promise.all(
-//     [...fileInputEl.files].map(fileToGenerativePart)
-//   );
+// // Get the list of available voices
+// var voices = window.speechSynthesis.getVoices();
 
-//   const result = await model.generateContent([prompt, ...imageParts]);
-//   const response = await result.response;
-//   const text = response.text();
-//   console.log(text);
-// }
+// Optionally, set the voice
+// msg.voice = voices[1];
+window.speechSynthesis.speak(msg);
 
-// run();
+// window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+// var recognition = new SpeechRecognition();
+// recognition.start();
+// recognition.addEventListener('result', function(event) {
+//     var transcript = event.results[0][0].transcript;
+//     console.log(transcript);
+// });
