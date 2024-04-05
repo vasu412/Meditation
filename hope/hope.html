@@ -103,26 +103,28 @@
 
             let hr = document.createElement('hr');
             box.appendChild(hr);
-
-
         }
 
         let input = document.querySelector('.input')
         let btn = document.querySelector('.button')
 
-
-        btn.addEventListener('click',()=>{
+        btn.addEventListener('click', async () => {
             let val = input.value;
+            input.value = '';
+
+            // Display the input text in the UI
             const messageElement = document.createElement("p");
-            messageElement.style.margin ='10px 0'
+            messageElement.style.margin ='10px 0';
             messageElement.innerText = val;
             box.appendChild(messageElement);
-            async function wait(){
-                const text = await run(val);
-            }
-            wait()
-            input.value=''
-        })
+
+            // Generate the response and display it
+            await run(val);
+
+            // Clear the input value after displaying the prompt
+            input.value = '';
+        });
+
       </script>
 </body>
 </html>
