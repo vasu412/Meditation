@@ -21,4 +21,4 @@ function changeText() {
 let btn = document.querySelector('.button')
 let circle = document.querySelector('.circle')
 // Start the loop
-let num =0;
+setInterval(changeText(),val);
