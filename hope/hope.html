@@ -108,7 +108,8 @@
         let input = document.querySelector('.input')
         let btn = document.querySelector('.button')
 
-        btn.addEventListener('click', async () => {
+        btn.addEventListener('click', async (e) => {
+            e.preventDefault();
             let val = input.value;
             input.value = '';
 
