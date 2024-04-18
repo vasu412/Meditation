@@ -83,30 +83,6 @@ body{
     margin-bottom: 30px;
 }
 
-/* body{ */
-    /* background: linear-gradient(to right, #70e1f5, #ffd194); */
-
-    /* animation: color infinite;
-    animation-delay: 2s;
-    animation-duration: 8s;
-    animation-timing-function: ease;
-    transition: all 2s ease ; */
-/* } */
-
-/* @keyframes color {
-    0%{
-        background: linear-gradient(to right, #ffefba, #ffffff);
-        transition: all 2s ease;
-    }
-    50%{
-        transition: all 2s ease;
-    }
-    100%{
-        background: linear-gradient(to right, #73c8a9, #373b44);
-        transition: all 2s ease;
-        background: linear-gradient(to right, #ada996, #f2f2f2, #dbdbdb, #eaeaea);
-    }
-} */
 a{
     text-decoration: none;
     color: black;
@@ -240,7 +216,7 @@ a{
     background-color: white;
     position: absolute;
     left: 0;
-    top: 130vh;
+    top: 150vh;
     text-align: center;
     display: none;
     z-index: 99;
